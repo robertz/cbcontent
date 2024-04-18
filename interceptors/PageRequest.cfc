@@ -1,6 +1,6 @@
 component{
 
-	property name="contentService" inject="ContentService@cb-content";
+	property name="contentService" inject="ContentService@cbcontent";
 
 	function configure(){}
 

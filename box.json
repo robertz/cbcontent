@@ -1,7 +1,7 @@
 {
     "name":"cbcontent",
     "author":"Robert Zehnder <robert@kisdigital.com>",
-    "version":"0.0.1",
+    "version":"0.0.2",
     "slug":"cbcontent",
     "type":"modules",
     "keywords":"i18n,internationalization,localization,language support",

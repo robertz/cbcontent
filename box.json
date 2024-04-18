@@ -1,0 +1,33 @@
+{
+    "name":"cbcontent",
+    "author":"Robert Zehnder <robert@kisdigital.com>",
+    "version":"0.0.1",
+    "slug":"cbcontent",
+    "type":"modules",
+    "keywords":"i18n,internationalization,localization,language support",
+    "homepage":"https://github.com/robertz/cbcontent",
+    "repository":{
+        "type":"git",
+        "url":"https://github.com/robertz/cbcontent"
+    },
+    "shortDescription":"This module will enhance your ColdBox applications with i18n with a db backend",
+    "license":[
+        {
+            "type":"Apache2",
+            "url":"http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    ],
+    "contributors":[
+        "Robert Zehnder <robert@kisdigital.cfformat>"
+    ],
+    "devDependencies":{
+        "commandbox-cfformat":"*",
+        "commandbox-docbox":"*",
+        "commandbox-dotenv":"*",
+        "commandbox-cfconfig":"*"
+    },
+    "scripts":{
+        "onRelease":"publish",
+        "postPublish":"!git push --follow-tags"
+    }
+}

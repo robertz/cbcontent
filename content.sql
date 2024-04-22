@@ -26,7 +26,7 @@ CREATE TABLE `ContentItem` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,6 @@ CREATE TABLE `ContentItem` (
 
 LOCK TABLES `ContentItem` WRITE;
 /*!40000 ALTER TABLE `ContentItem` DISABLE KEYS */;
-INSERT INTO `ContentItem` VALUES (1,'my-key'),(2,'welcome');
 /*!40000 ALTER TABLE `ContentItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,8 +73,9 @@ DROP TABLE IF EXISTS `Page`;
 CREATE TABLE `Page` (
   `id` int NOT NULL AUTO_INCREMENT,
   `page` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Page_page_uindex` (`page`) COMMENT 'No duplicate page names'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +84,6 @@ CREATE TABLE `Page` (
 
 LOCK TABLES `Page` WRITE;
 /*!40000 ALTER TABLE `Page` DISABLE KEYS */;
-INSERT INTO `Page` VALUES (1,'global.layout'),(2,'other.page');
 /*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +110,6 @@ CREATE TABLE `PageContentItem` (
 
 LOCK TABLES `PageContentItem` WRITE;
 /*!40000 ALTER TABLE `PageContentItem` DISABLE KEYS */;
-INSERT INTO `PageContentItem` VALUES (1,1),(1,2),(2,2);
 /*!40000 ALTER TABLE `PageContentItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +130,7 @@ CREATE TABLE `TranslatedItem` (
   KEY `TranslatedItem_LangTypes_id_fk` (`LangTypeId`),
   CONSTRAINT `TranslatedItem_ContentItem_id_fk` FOREIGN KEY (`ContentItemId`) REFERENCES `ContentItem` (`id`),
   CONSTRAINT `TranslatedItem_LangTypes_id_fk` FOREIGN KEY (`LangTypeId`) REFERENCES `LangTypes` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +139,6 @@ CREATE TABLE `TranslatedItem` (
 
 LOCK TABLES `TranslatedItem` WRITE;
 /*!40000 ALTER TABLE `TranslatedItem` DISABLE KEYS */;
-INSERT INTO `TranslatedItem` VALUES (1,1,1,'This is my awesome piece of content'),(3,1,2,'Hola!'),(4,2,1,'Welcome to modern ColdFusion (CFML) development. You can now start building your application with ease, we already did the hard work for you. '),(5,2,2,'Bienvenido al desarrollo moderno de ColdFusion (CFML). Ahora puedes comenzar a construir tu aplicación con facilidad, nosotros ya hicimos el trabajo duro por ti.');
 /*!40000 ALTER TABLE `TranslatedItem` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-19  8:40:10
+-- Dump completed on 2024-04-22 10:33:27
